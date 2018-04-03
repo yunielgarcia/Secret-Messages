@@ -1,6 +1,6 @@
-from cipher import Cipher
 import utils
-
+from caesar import Caesar
+from keyword_c import KeywordCipher
 
 if __name__ == "__main__":
 
@@ -8,6 +8,7 @@ if __name__ == "__main__":
     selected_cipher = ''
     selected_action = ''
     message = ''
+    cipher_obj = None
 
     utils.show_options()
 
@@ -19,4 +20,11 @@ if __name__ == "__main__":
     while not utils.check_action(selected_action):
         selected_action = utils.request_action()
 
-    print(selected_action, selected_cipher, message)
+    if selected_cipher == "Caesar":
+        cipher_obj = Caesar()
+        print(utils.process_encryption(cipher_obj, message, selected_action))
+    elif selected_cipher == "Keyword":
+        keyword = input("Enter your keyword: ")
+        cipher_obj = KeywordCipher(keyword)
+        print(utils.process_encryption(cipher_obj, message, selected_action))
+

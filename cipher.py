@@ -4,10 +4,10 @@ class Cipher:
     def __init__(self):
         pass
 
-    def encrypt(self):
+    def encrypt(self, message):
         raise NotImplementedError()
 
-    def decrypt(self):
+    def decrypt(self, message):
         raise NotImplementedError()
 
     @classmethod

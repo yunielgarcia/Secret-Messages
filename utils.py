@@ -1,6 +1,6 @@
 from cipher import Cipher
 
-CIPHERS = ('Alberti', 'Affine', 'Atbash')
+CIPHERS = ('Keyword', 'Caesar')
 
 
 def show_options():
@@ -38,3 +38,11 @@ def check_action(action):
     otherwise ask it again
     """
     return action in Cipher.action_calls()
+
+
+def process_encryption(cipher, msg, action):
+    if isinstance(cipher, Cipher):
+        if action == "encrypt":
+            return cipher.encrypt(msg)
+        elif action == "decrypt":
+            return cipher.decrypt(msg)
