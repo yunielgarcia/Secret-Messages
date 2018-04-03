@@ -1,7 +1,8 @@
 class Cipher:
+    _actions = "encrypt", "decrypt"
 
     def __init__(self):
-        self.action_calls = ("encrypt", "decrypt")
+        pass
 
     def encrypt(self):
         raise NotImplementedError()
@@ -9,5 +10,7 @@ class Cipher:
     def decrypt(self):
         raise NotImplementedError()
 
-
+    @classmethod
+    def action_calls(cls):
+        return cls._actions
 

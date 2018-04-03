@@ -25,3 +25,16 @@ def check_selection(selection):
     otherwise ask it again
     """
     return selection in CIPHERS
+
+
+def request_action():
+    """Display prompt asking what action to take. If not correct this function is reused"""
+    selection = input("Are we going to encrypt or decrypt ")
+    return selection
+
+
+def check_action(action):
+    """Check the correct action for the cipher,
+    otherwise ask it again
+    """
+    return action in Cipher.action_calls()

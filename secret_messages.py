@@ -6,6 +6,7 @@ if __name__ == "__main__":
 
     # inputs
     selected_cipher = ''
+    selected_action = ''
     message = ''
 
     utils.show_options()
@@ -15,4 +16,7 @@ if __name__ == "__main__":
 
     message = input("That's an excellent cipher. What's the message? ")
 
-    action_option = input("")
+    while not utils.check_action(selected_action):
+        selected_action = utils.request_action()
+
+    print(selected_action, selected_cipher, message)
