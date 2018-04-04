@@ -11,10 +11,14 @@ class KeywordCipher(Cipher):
         self.keyword = keyword
         if not isinstance(keyword, str):
             raise ValueError("You must enter a keyword")
-        self.LAST_ALPH = [letter for letter in self.PLAIN_TEXT_ALPH if letter not in self.keyword.upper()]
-        self.CIPHER_TEXT_ALPH = list(self.keyword.upper()) + self.LAST_ALPH
+        keyword_upper = keyword.upper()
+        self.LAST_ALPH = [letter for letter in self.PLAIN_TEXT_ALPH if letter not in keyword_upper]
+        self.CIPHER_TEXT_ALPH = list(keyword_upper) + self.LAST_ALPH
 
     def encrypt(self, message):
+        """Apply the selected encryption method to the message
+        @:param message
+        :returns: encrypted message string"""
         output = []
         for letter in message:
             #  preventing white spaces and numbers
@@ -26,6 +30,10 @@ class KeywordCipher(Cipher):
         return "".join(output)
 
     def decrypt(self, message):
+        """Apply the selected decryption method to the encrypted message
+        :param message:
+        :return:
+        """
         output = []
         for letter in message:
             #  preventing white spaces and numbers
