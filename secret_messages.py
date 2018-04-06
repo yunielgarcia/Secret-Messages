@@ -2,6 +2,7 @@ import utils
 from caesar import Caesar
 from keyword_c import KeywordCipher
 from bifid import Bifid
+from atbash import Atbash
 
 if __name__ == "__main__":
 
@@ -31,5 +32,9 @@ if __name__ == "__main__":
     elif selected_cipher == "Bifid":
         keyword = input("Enter your keyword: ")
         cipher_obj = Bifid(keyword)
+        print("This is your encoded message:")
+        print(utils.process_encryption(cipher_obj, message, selected_action))
+    elif selected_cipher == "Atbash":
+        cipher_obj = Atbash()
         print("This is your encoded message:")
         print(utils.process_encryption(cipher_obj, message, selected_action))

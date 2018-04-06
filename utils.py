@@ -1,6 +1,6 @@
 from cipher import Cipher
 
-CIPHERS = ('Keyword', 'Caesar', 'Bifid')
+CIPHERS = ('Keyword', 'Caesar', 'Bifid', 'Atbash')
 
 
 def show_options():
